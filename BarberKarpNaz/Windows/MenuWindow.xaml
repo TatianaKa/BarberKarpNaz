@@ -5,56 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarberKarpNaz.Windows"
         mc:Ignorable="d"
-        Title="MenuWindow" Height="450" Width="400">
-    <Grid Background="#FFF4D8F7">
+        Title="MenuWindow" 
+        Height="450" 
+        Width="600"
+        WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF11162E">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Главное окно" 
-                   FontSize="20"
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center"/>
-        <Button Width="150" 
-                Height="20" 
-                Grid.Row="1" 
-                Content="Каталог услуг"
-                Background="#FF6992FA"
-                x:Name="BtnCatalog"
-                Click="BtnCatalog_Click"/>
-        <Button Width="150" 
-                Height="20" 
-                Grid.Row="2" 
-                Content="Добавление записи"
-                Background="#FF6992FA"
-                x:Name="BtnAdd"
-                Click="BtnAdd_Click"/>
-        <Button Width="150" 
-                Height="20" 
-                Grid.Row="3" 
-                Content="Данные о персонале"
-                Background="#FF6992FA"
-                x:Name="BtnStaff"
-                Click="BtnStaff_Click"/>
-        <Button Width="150" 
-                Height="20" 
-                Grid.Row="4" 
-                Content="Расходники"
-                Background="#FF6992FA"
-                x:Name="BtnMaterial"
-                Click="BtnMaterial_Click"/>
-        <Button Width="150" 
-                Height="20" 
-                Grid.Row="5" 
-                Content="Отчеты"
-                Background="#FF6992FA"
-                x:Name="BtnReport"
-                Click="BtnReport_Click"/>
-        <Frame x:Name="Frame" Grid.RowSpan="6"/>
+                   FontSize="25"
+                   Margin="5 5"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top"
+                   Style="{DynamicResource txtStyle}"/>
+        
+        <Button Width="100" 
+                Height="30" 
+                Margin="0 5 10 0"
+                Grid.Row="0"
+                FontSize="20"
+                Content="Заказы"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Style="{DynamicResource btnStyle}"
+                x:Name="btnOrder"
+                Click="btnOrder_Click"
+                />
+        
+        <Button Width="110" 
+                HorizontalAlignment="Center"
+                Height="30"
+                FontSize="20"
+                Grid.Row="0" 
+                Content="Персонал"
+                VerticalAlignment="Top"
+                Style="{DynamicResource btnStyle}"
+                Margin="225 5 0 0"
+                x:Name="btnEmployee"
+                Click="btnEmployee_Click"
+                />
+        
+        <Button Width="90" 
+                Height="30"
+                Margin="0 5 20 0"
+                FontSize="20"
+                Grid.Row="0" 
+                Content="Клиенты"
+                Style="{DynamicResource btnStyle}"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                x:Name="btnClient"
+                Click="btnClient_Click"
+                />
+        
+        <Frame x:Name="frame" Grid.Row="1"/>
 
 
     </Grid>

@@ -25,29 +25,19 @@ namespace BarberKarpNaz.Windows
             InitializeComponent();
         }
 
-        private void BtnCatalog_Click(object sender, RoutedEventArgs e)
+        private void btnEmployee_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(new CatalogPage());
+            frame.Navigate(new Employees());
         }
 
-        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        private void btnClient_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(new AddPage());
+            frame.Navigate(new Clients());
         }
 
-        private void BtnStaff_Click(object sender, RoutedEventArgs e)
+        private void btnOrder_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(new StaffPage());
-        }
-
-        private void BtnMaterial_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(new MaterialPage());
-        }
-
-        private void BtnReport_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(new ReportPage());
+            frame.Navigate(new Orders());
         }
     }
 }

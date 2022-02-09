@@ -4,6 +4,26 @@
              xmlns:local="clr-namespace:BarberKarpNaz"
              StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
-         
+
+        <Style x:Key="txtStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="century gothic"/>
+        </Style>
+        
+        <Style x:Key="txbStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="century gothic"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="BorderBrush" Value="White"/>
+        </Style>
+        
+        <Style x:Key="btnStyle" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="century gothic"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="BorderBrush" Value="White"/>
+        </Style>
     </Application.Resources>
 </Application>

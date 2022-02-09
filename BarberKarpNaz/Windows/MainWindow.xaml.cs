@@ -28,11 +28,19 @@ namespace BarberKarpNaz
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void btnAuth_Click(object sender, RoutedEventArgs e)
         {
-            //Frame.Navigate(new CatalogPage());
-            MenuWindow menu = new MenuWindow();
-            menu.ShowDialog();
+            var userAuth = ClassHelper.AppData.context.Employee.Where(i => i.Login == txbLogin.Text && i.Password == txbPassword.Password).ToList().FirstOrDefault();
+            if (userAuth != null)
+            {
+                MenuWindow menu = new MenuWindow();
+                txbLogin.Clear();
+                txbPassword.Clear();
+                this.Hide();
+                menu.ShowDialog();
+                this.Show();
+            }
         }
     }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="66f16a988e8349489c1547ac6d4c7601" Name="Diagram1">
+        <EntityTypeShape EntityType="BarberShopModel1.Client" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarberShopModel1.Employee" Width="1.5" PointX="3.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarberShopModel1.Gender" Width="1.5" PointX="1.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarberShopModel1.Material" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarberShopModel1.MaterialService" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarberShopModel1.Order" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarberShopModel1.Service" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarberShopModel1.Speciality" Width="1.5" PointX="1.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarberShopModel1.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="BarberShopModel1.FK_ClientService_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="BarberShopModel1.FK_ClientService_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="BarberShopModel1.FK_Employee_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="BarberShopModel1.FK_Employee_Speciality" ManuallyRouted="false" />
+        <AssociationConnector Association="BarberShopModel1.FK_MaterialService_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="BarberShopModel1.FK_MaterialService_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="BarberShopModel1.FK_ClientService_Service" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

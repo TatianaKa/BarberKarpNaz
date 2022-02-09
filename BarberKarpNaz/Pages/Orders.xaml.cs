@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace BarberKarpNaz.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddPage.xaml
+    /// Логика взаимодействия для Orders.xaml
     /// </summary>
-    public partial class AddPage : Page
+    public partial class Orders : Page
     {
-        public AddPage()
+        public Orders()
         {
             InitializeComponent();
         }
