@@ -54,7 +54,7 @@ namespace BarberKarpNaz.Pages
                 default:
                     break;
             }
-            LVEmployee.ItemsSource = ListClient;
+            LVClient.ItemsSource = ListClient;
         }
 
         private void txbSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -65,15 +65,6 @@ namespace BarberKarpNaz.Pages
         {
             Filter();
         }
-        private void btnChange_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -81,6 +72,36 @@ namespace BarberKarpNaz.Pages
             Opacity = 0.2;
             addClient.ShowDialog();
             Opacity = 1;
+        }
+        private void LVEmployee_KeyUp(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                var resClick = MessageBox.Show($"Удалить клиента {LVClient.SelectedItem as EF.Client }", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                try
+                {
+                    if (resClick == MessageBoxResult.Yes)
+                    {
+                        EF.Client userDel = new EF.Client();
+                        userDel = (LVClient.SelectedItem as EF.Client);
+                        ClassHelper.AppData.context.Client.Remove(userDel);
+                        ClassHelper.AppData.context.SaveChanges();
+                        MessageBox.Show("Клиент удален");
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+
+            }
+            Filter();
+
         }
     }
 }

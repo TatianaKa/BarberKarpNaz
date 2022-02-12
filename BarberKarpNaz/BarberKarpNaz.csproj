@@ -137,6 +137,9 @@
     <Compile Include="Windows\AddEmployee.xaml.cs">
       <DependentUpon>AddEmployee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddOrder.xaml.cs">
+      <DependentUpon>AddOrder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AddEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

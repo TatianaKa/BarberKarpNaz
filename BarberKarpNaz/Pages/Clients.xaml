@@ -37,7 +37,7 @@
                   Margin="70 0 0 0"
                   SelectionChanged="cmbSort_SelectionChanged"/>
 
-        <ListView x:Name="LVEmployee" Grid.Row="1">
+        <ListView x:Name="LVClient" Grid.Row="1" KeyUp="LVEmployee_KeyUp">
             <ListView.View>
                 <GridView >
                     <GridViewColumn Header="Id" 
@@ -71,27 +71,6 @@
                 FontSize="20" 
                 HorizontalAlignment="Left"
                 Click="btnAdd_Click"
-                Margin="5 0"/>
-
-        <Button x:Name="btnChange" 
-                Grid.Row="2" 
-                Width="160" 
-                Height="30" 
-                Style="{DynamicResource btnStyle}" 
-                Content="Изменить" 
-                FontSize="20" 
-                HorizontalAlignment="Center"
-                Click="btnChange_Click"/>
-
-        <Button x:Name="btnDelete" 
-                Grid.Row="2" 
-                Width="160" 
-                Height="30" 
-                Style="{DynamicResource btnStyle}" 
-                Content="Удалить" 
-                FontSize="20" 
-                HorizontalAlignment="Right"
-                Click="btnDelete_Click"
                 Margin="5 0"/>
         <Frame x:Name="frame" Grid.RowSpan="3"/>
     </Grid>

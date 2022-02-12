@@ -37,7 +37,7 @@
                   Margin="70 0 0 0"
                   SelectionChanged="cmbSort_SelectionChanged"/>
         
-        <ListView x:Name="LVEmployee" Grid.Row="1">
+        <ListView x:Name="LVEmployee" Grid.Row="1" KeyUp="LVEmployee_KeyUp" >
             <ListView.View>
                 <GridView >
                     <GridViewColumn Header="Id" 
@@ -79,7 +79,7 @@
                 Click="btnAdd_Click"
                 Margin="5 0"/>
         
-        <Button x:Name="btnChange" 
+        <!--<Button x:Name="btnChange" 
                 Grid.Row="2" 
                 Width="160" 
                 Height="30" 
@@ -98,7 +98,7 @@
                 FontSize="20" 
                 HorizontalAlignment="Right"
                 Click="btnDelete_Click"
-                Margin="5 0"/>
+                Margin="5 0"/>-->
         <Frame x:Name="frame" Grid.RowSpan="3"/>
     </Grid>
 </Page>

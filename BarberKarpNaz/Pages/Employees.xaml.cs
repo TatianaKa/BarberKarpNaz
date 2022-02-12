@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace BarberKarpNaz.Pages
 {
@@ -57,19 +59,49 @@ namespace BarberKarpNaz.Pages
             Opacity = 1;
         }
 
-        private void btnChange_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void cmbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Filter();
         }
+
+        private void LVEmployee_KeyUp(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                var resClick = MessageBox.Show($"Удалить сотрудника {LVEmployee.SelectedItem as EF.Employee }", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                try
+                {
+                    if (resClick == MessageBoxResult.Yes)
+                    {
+                        EF.Employee userDel = new EF.Employee();
+                        if (!(LVEmployee.SelectedItem is EF.Employee))
+                        {
+                            MessageBox.Show("Запись не выбрана");
+                            return;
+                        }
+                        userDel = (LVEmployee.SelectedItem as EF.Employee);
+                        ClassHelper.AppData.context.Employee.Remove(userDel);
+                        ClassHelper.AppData.context.SaveChanges();
+                        MessageBox.Show("Сотрудник удален");
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+
+            }
+            Filter();
+
+        }
+
+
+
     }
 }
