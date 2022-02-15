@@ -42,13 +42,13 @@
                 <GridView >
                     <GridViewColumn Header="LastNameClient" 
                                     Width="90" 
-                                    DisplayMemberBinding="{Binding IdClient}"/>
+                                    DisplayMemberBinding="{Binding Client.LastName}"/>
                     <GridViewColumn Header="LastNameEmployee" 
                                     Width="120" 
-                                    DisplayMemberBinding="{Binding IdEmployee}"/>
+                                    DisplayMemberBinding="{Binding Employee.LastName}"/>
                     <GridViewColumn Header="ServiceName" 
                                     Width="80" 
-                                    DisplayMemberBinding="{Binding IdService}"/>
+                                    DisplayMemberBinding="{Binding Service.NameService}"/>
                     <GridViewColumn Header="StartTime" 
                                     Width="80" 
                                     DisplayMemberBinding="{Binding StartTime}"/>

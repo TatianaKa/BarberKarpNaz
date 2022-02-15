@@ -21,7 +21,7 @@
                    VerticalAlignment="Top"
                    Style="{DynamicResource txtStyle}"/>
         
-        <Button Width="100" 
+        <!--<Button Width="100" 
                 Height="30" 
                 Margin="0 5 10 0"
                 Grid.Row="0"
@@ -32,7 +32,7 @@
                 Style="{DynamicResource btnStyle}"
                 x:Name="btnOrder"
                 Click="btnOrder_Click"
-                />
+                />-->
         
         <Button Width="110" 
                 HorizontalAlignment="Center"

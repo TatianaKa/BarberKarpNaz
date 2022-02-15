@@ -21,42 +21,89 @@ namespace BarberKarpNaz.Windows
     /// </summary>
     public partial class AddClient : Window
     {
+        EF.Client clientEdit =new Client();
+        private bool isEdit=true;
         public AddClient()
         {
             InitializeComponent();
+            isEdit = false;
+        }
+        public AddClient(EF.Client client)
+        {
+            InitializeComponent();
+            tbTitle.Text = "Изменение клиента";
+            btnAdd.Content = "Изменение";
+            txbLastName.Text = client.LastName;
+            txbFirstName.Text = client.FIrstName;
+            txbPatronymic.Text = client.Patronymic;
+            txbEmail.Text = client.Email;
+            txbPhone.Text = client.Phone;
+            clientEdit = client;
+            ClassHelper.AppData.context.SaveChanges();
         }
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (txbFirstName.Text == null)
-            {
-                MessageBox.Show("Заполните поле Имя");
-            }
-            if (txbLastName.Text == null)
+            if (string.IsNullOrWhiteSpace(txbLastName.Text))
             {
                 MessageBox.Show("Заполните поле Фамилия");
+                return;
             }
-            if (txbPhone.Text == null)
+
+            if (string.IsNullOrWhiteSpace(txbFirstName.Text))
+            {
+                MessageBox.Show("Заполните поле Имя");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txbPhone.Text))
             {
                 MessageBox.Show("Заполните поле Телефон");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txbEmail.Text))
+            {
+                MessageBox.Show("Заполните поле Email");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txbPhone.Text))
+            {
+                MessageBox.Show("Заполните поле Телефон");
+                return;
             }
 
 
             var resClick = MessageBox.Show("Вы уверены", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (resClick == MessageBoxResult.Yes)
             {
-                Client client= new Client()
+                if (isEdit)
                 {
-                    LastName = txbLastName.Text,
-                    FIrstName = txbFirstName.Text,
-                    Patronymic = txbPatronymic.Text,
-                    Phone = txbPhone.Text,
-                    Email=txbEmail.Text
+
+                    clientEdit.LastName =txbLastName.Text;
+                    clientEdit.FIrstName=txbFirstName.Text;
+                    clientEdit.Patronymic=txbPatronymic.Text;
+                    clientEdit.Email=txbEmail.Text;
+                    clientEdit.Phone=txbPhone.Text;
+                    ClassHelper.AppData.context.SaveChanges();
+                    MessageBox.Show("Пользователь успешно изменен!");
+                    this.Close();
+                }
+                else
+                {
+                    Client client = new Client();
+                    client.LastName = txbLastName.Text;
+                    client.FIrstName = txbFirstName.Text;
+                    client.Patronymic = txbPatronymic.Text;
+                    client.Phone = txbPhone.Text;
+                    client.Email = txbEmail.Text;
+                    ClassHelper.AppData.context.Client.Add(client);
+                    ClassHelper.AppData.context.SaveChanges();
+                    MessageBox.Show("Пользователь успешно добавлен!");
+                    this.Close();
                 };
-                ClassHelper.AppData.context.Client.Add(client);
-                ClassHelper.AppData.context.SaveChanges();
+               
             }
-            MessageBox.Show("Пользователь успешно добавлен!");
-            this.Close();
+           
         }
 
 

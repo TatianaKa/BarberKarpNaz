@@ -33,7 +33,8 @@
                    Style="{DynamicResource txtStyle}"
                    FontSize="20"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Top"/>
+                   VerticalAlignment="Top"
+                   x:Name="tbTitle"/>
 
         <TextBlock Text="Фамилия" 
                    Style="{DynamicResource txtStyle}" 

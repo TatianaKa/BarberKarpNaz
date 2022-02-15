@@ -37,7 +37,10 @@
                   Margin="70 0 0 0"
                   SelectionChanged="cmbSort_SelectionChanged"/>
 
-        <ListView x:Name="LVClient" Grid.Row="1" KeyUp="LVEmployee_KeyUp">
+        <ListView x:Name="LVClient" 
+                  Grid.Row="1" 
+                  KeyUp="LVEmployee_KeyUp"
+                  MouseDoubleClick="LVClient_MouseDoubleClick">
             <ListView.View>
                 <GridView >
                     <GridViewColumn Header="Id" 

@@ -34,6 +34,7 @@
                 Content="Назад"
                 Click="btnClose_Click"/>
         <TextBlock Text="Добавление сотрудника"
+                   x:Name="tbTitle"
                    Grid.ColumnSpan="2"
                    Style="{DynamicResource txtStyle}"
                    FontSize="20"

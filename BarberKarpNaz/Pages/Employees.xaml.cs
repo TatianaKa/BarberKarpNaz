@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using BarberKarpNaz.Windows;
 
 namespace BarberKarpNaz.Pages
 {
@@ -101,7 +102,11 @@ namespace BarberKarpNaz.Pages
 
         }
 
-
-
+        private void LVEmployee_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            EF.Employee employee = LVEmployee.SelectedItem as EF.Employee;
+            AddEmployee add = new AddEmployee(employee);
+            add.ShowDialog();
+        }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BarberKarpNaz.Windows;
 
 namespace BarberKarpNaz.Pages
 {
@@ -102,6 +103,13 @@ namespace BarberKarpNaz.Pages
             }
             Filter();
 
+        }
+
+        private void LVClient_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            EF.Client client = LVClient.SelectedItem as EF.Client;
+            AddClient add = new AddClient(client);
+            add.ShowDialog();
         }
     }
 }

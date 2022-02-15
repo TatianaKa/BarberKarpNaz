@@ -58,7 +58,7 @@
                    FontSize="15"
                    Margin="0 0 15 0"/>
 
-        <TextBlock Text="Начало оказания услуги" 
+        <!--<TextBlock Text="Начало оказания услуги" 
                    Style="{DynamicResource txtStyle}" 
                    Grid.Row="4" 
                    HorizontalAlignment="Right" 
@@ -72,7 +72,7 @@
                    HorizontalAlignment="Right" 
                    VerticalAlignment="Center" 
                    FontSize="15" 
-                   Margin="0 0 15 0"/>
+                   Margin="0 0 15 0"/>-->
 
 
       
@@ -122,7 +122,7 @@
                  VerticalAlignment="Center" 
                  PreviewMouseRightButtonUp="txbLastName_PreviewMouseRightButtonUp"/>
 
-        <TextBox Margin="5 0"
+        <!--<TextBox Margin="5 0"
                  x:Name="txbStartTime" 
                  Grid.Row="4" 
                  Grid.Column="1" 
@@ -146,7 +146,7 @@
                  VerticalAlignment="Center" 
                  MaxLength="14" 
                  PreviewKeyDown="txbPhone_PreviewKeyDown" 
-                 PreviewTextInput="txbPhone_PreviewTextInput" />
+                 PreviewTextInput="txbPhone_PreviewTextInput" />-->
 
     </Grid>
 </Window>
