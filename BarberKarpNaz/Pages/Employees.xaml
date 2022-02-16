@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BarberKarpNaz.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="400" d:DesignWidth="800"
+      d:DesignHeight="400" d:DesignWidth="1000"
       Title="Employees">
 
     <Grid Background="#FF11162E">
@@ -71,6 +71,9 @@
                     <GridViewColumn Header="Password" 
                                     Width="100" 
                                     DisplayMemberBinding="{Binding Password}"/>
+                    <GridViewColumn Header="IsDeleted" 
+                                    Width="100" 
+                                    DisplayMemberBinding="{Binding IsDeleted}"/>
                 </GridView>
             </ListView.View>
         </ListView>

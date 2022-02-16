@@ -24,7 +24,7 @@ namespace BarberKarpNaz.Pages
         }
         private void Filter()
         {
-            ListEmployee = ClassHelper.AppData.context.Employee.ToList();
+            ListEmployee = ClassHelper.AppData.context.Employee.ToList().Where(i => i.IsDeleted == false).ToList();
             ListEmployee = ListEmployee.Where(i => i.LastName.Contains(txbSearch.Text) ||
             i.FirstName.Contains(txbSearch.Text) || i.Phone.Contains(txbSearch.Text)).ToList();
             switch (cmbSort.SelectedIndex)
@@ -68,10 +68,10 @@ namespace BarberKarpNaz.Pages
 
         private void LVEmployee_KeyUp(object sender, KeyEventArgs e)
         {
-
+            EF.Employee employee = LVEmployee.SelectedItem as EF.Employee;
             if (e.Key == Key.Delete || e.Key == Key.Back)
             {
-                var resClick = MessageBox.Show($"Удалить сотрудника {LVEmployee.SelectedItem as EF.Employee }", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var resClick = MessageBox.Show($"Удалить сотрудника {/*LVEmployee.SelectedItem as EF.Employee*/ employee }", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 try
                 {
@@ -84,7 +84,8 @@ namespace BarberKarpNaz.Pages
                             return;
                         }
                         userDel = (LVEmployee.SelectedItem as EF.Employee);
-                        ClassHelper.AppData.context.Employee.Remove(userDel);
+                        //ClassHelper.AppData.context.Employee.Remove(userDel);
+                        userDel.IsDeleted = true;
                         ClassHelper.AppData.context.SaveChanges();
                         MessageBox.Show("Сотрудник удален");
                     }

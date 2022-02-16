@@ -72,18 +72,26 @@ namespace BarberKarpNaz.Windows
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            var Employ = ClassHelper.AppData.context.Employee.Where(i => i.LastName == txbLastNameEmployee.Text).ToList().FirstOrDefault();
-            var Clien = ClassHelper.AppData.context.Client.Where(i => i.LastName == txbLastNameClient.Text).ToList().FirstOrDefault();
-            var Serv = ClassHelper.AppData.context.Service.Where(i => i.NameService == txbNameService.Text).ToList().FirstOrDefault();
-            DateTime date = new DateTime(2001,01,29);
-            Order order = new Order() {
-                IdEmployee = Employ.Id,
-                IdClient = Clien.Id,
-                IdService = Serv.Id,
-                StartTime = date,
-                EndTime=date.AddMinutes(20)
-            };
-            ClassHelper.AppData.context.SaveChanges();
+            var resClick=MessageBox.Show("Вы уверены?","Вопрос",MessageBoxButton.YesNo,MessageBoxImage.Question);
+            if (resClick==MessageBoxResult.Yes)
+            { 
+                var Employ = ClassHelper.AppData.context.Employee.Where(i => i.LastName == txbLastNameEmployee.Text).ToList().FirstOrDefault();
+                var Clien = ClassHelper.AppData.context.Client.Where(i => i.LastName == txbLastNameClient.Text).ToList().FirstOrDefault();
+                var Serv = ClassHelper.AppData.context.Service.Where(i => i.NameService == txbNameService.Text).ToList().FirstOrDefault();
+                DateTime date = DateTime.Now;
+                Order order = new Order() {
+                    IdEmployee = Employ.Id,
+                    IdClient = Clien.Id,
+                    IdService = Serv.Id,
+                    StartTime = date,
+                    EndTime=date.AddMinutes(20)
+                };
+                ClassHelper.AppData.context.Order.Add(order);
+                ClassHelper.AppData.context.SaveChanges();
+                MessageBox.Show("Заказ добавлен");
+            }
+            
+           
 
         }
     }

@@ -39,7 +39,7 @@
 
         <ListView x:Name="LVClient" 
                   Grid.Row="1" 
-                  KeyUp="LVEmployee_KeyUp"
+                 
                   MouseDoubleClick="LVClient_MouseDoubleClick">
             <ListView.View>
                 <GridView >

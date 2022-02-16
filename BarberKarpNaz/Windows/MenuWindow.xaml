@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MenuWindow" 
         Height="450" 
-        Width="600"
+        Width="1000"
         WindowStartupLocation="CenterScreen">
     <Grid Background="#FF11162E">
         <Grid.RowDefinitions>
@@ -21,7 +21,7 @@
                    VerticalAlignment="Top"
                    Style="{DynamicResource txtStyle}"/>
         
-        <!--<Button Width="100" 
+        <Button Width="100" 
                 Height="30" 
                 Margin="0 5 10 0"
                 Grid.Row="0"
@@ -32,17 +32,17 @@
                 Style="{DynamicResource btnStyle}"
                 x:Name="btnOrder"
                 Click="btnOrder_Click"
-                />-->
+                />
         
         <Button Width="110" 
-                HorizontalAlignment="Center"
+                HorizontalAlignment="Right" 
                 Height="30"
                 FontSize="20"
                 Grid.Row="0" 
                 Content="Персонал"
                 VerticalAlignment="Top"
                 Style="{DynamicResource btnStyle}"
-                Margin="225 5 0 0"
+                Margin="0 5 220 0"
                 x:Name="btnEmployee"
                 Click="btnEmployee_Click"
                 />

@@ -74,36 +74,6 @@ namespace BarberKarpNaz.Pages
             addClient.ShowDialog();
             Opacity = 1;
         }
-        private void LVEmployee_KeyUp(object sender, KeyEventArgs e)
-        {
-
-            if (e.Key == Key.Delete || e.Key == Key.Back)
-            {
-                var resClick = MessageBox.Show($"Удалить клиента {LVClient.SelectedItem as EF.Client }", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-                try
-                {
-                    if (resClick == MessageBoxResult.Yes)
-                    {
-                        EF.Client userDel = new EF.Client();
-                        userDel = (LVClient.SelectedItem as EF.Client);
-                        ClassHelper.AppData.context.Client.Remove(userDel);
-                        ClassHelper.AppData.context.SaveChanges();
-                        MessageBox.Show("Клиент удален");
-                    }
-
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    throw;
-                }
-
-            }
-            Filter();
-
-        }
 
         private void LVClient_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
