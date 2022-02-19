@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище BarberShopModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище BarberShopModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="Id" />
@@ -15,6 +15,7 @@
           <Property Name="Patronymic" Type="nvarchar" MaxLength="100" />
           <Property Name="Phone" Type="char" MaxLength="11" Nullable="false" />
           <Property Name="Email" Type="nchar" MaxLength="30" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -30,6 +31,7 @@
           <Property Name="IdSpeciality" Type="int" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -75,6 +77,7 @@
           <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="DurationInMinute" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Speciality">
           <Key>
@@ -216,7 +219,8 @@
             <End Role="MaterialService" EntitySet="MaterialService" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BarberShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -224,19 +228,20 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FIrstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Order" Relationship="Self.FK_ClientService_Client" FromRole="Client" ToRole="Order" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -246,6 +251,7 @@
           <Property Name="IdSpeciality" Type="Int32" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Order" Relationship="Self.FK_ClientService_Employee" FromRole="Employee" ToRole="Order" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Employee_Gender" FromRole="Employee" ToRole="Gender" />
           <NavigationProperty Name="Speciality" Relationship="Self.FK_Employee_Speciality" FromRole="Employee" ToRole="Speciality" />
@@ -254,7 +260,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Gender" FromRole="Gender" ToRole="Employee" />
         </EntityType>
@@ -262,7 +268,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameMaterial" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="MaterialService" Relationship="Self.FK_MaterialService_Material" FromRole="Material" ToRole="MaterialService" />
@@ -271,7 +277,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdService" Type="Int32" Nullable="false" />
           <Property Name="IdMaterial" Type="Int32" />
           <NavigationProperty Name="Material" Relationship="Self.FK_MaterialService_Material" FromRole="MaterialService" ToRole="Material" />
@@ -281,7 +287,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdClient" Type="Int32" Nullable="false" />
           <Property Name="IdService" Type="Int32" Nullable="false" />
           <Property Name="IdEmployee" Type="Int32" Nullable="false" />
@@ -296,11 +302,12 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameService" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="DurationInMinute" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="MaterialService" Relationship="Self.FK_MaterialService_Service" FromRole="Service" ToRole="MaterialService" />
           <NavigationProperty Name="Order" Relationship="Self.FK_ClientService_Service" FromRole="Service" ToRole="Order" />
         </EntityType>
@@ -308,7 +315,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameSpeciality" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Speciality" FromRole="Speciality" ToRole="Employee" />
         </EntityType>
@@ -460,6 +467,7 @@
                 <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -476,6 +484,7 @@
                 <ScalarProperty Name="IdSpeciality" ColumnName="IdSpeciality" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -526,6 +535,7 @@
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="DurationInMinute" ColumnName="DurationInMinute" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

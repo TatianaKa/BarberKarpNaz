@@ -71,9 +71,7 @@
                     <GridViewColumn Header="Password" 
                                     Width="100" 
                                     DisplayMemberBinding="{Binding Password}"/>
-                    <GridViewColumn Header="IsDeleted" 
-                                    Width="100" 
-                                    DisplayMemberBinding="{Binding IsDeleted}"/>
+                  
                 </GridView>
             </ListView.View>
         </ListView>

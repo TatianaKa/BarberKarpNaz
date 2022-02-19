@@ -96,6 +96,7 @@ namespace BarberKarpNaz.Windows
                     client.Patronymic = txbPatronymic.Text;
                     client.Phone = txbPhone.Text;
                     client.Email = txbEmail.Text;
+                    client.IsDeleted = false;
                     ClassHelper.AppData.context.Client.Add(client);
                     ClassHelper.AppData.context.SaveChanges();
                     MessageBox.Show("Пользователь успешно добавлен!");
