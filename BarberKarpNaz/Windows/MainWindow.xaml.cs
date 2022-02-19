@@ -41,6 +41,10 @@ namespace BarberKarpNaz
                 menu.ShowDialog();
                 this.Show();
             }
+            else
+            {
+                MessageBox.Show("Проверьте правильность введенных данных");
+            }
         }
     }
 }
