@@ -1,0 +1,49 @@
+﻿<Page x:Class="BarberKarpNaz.Pages.Services"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BarberKarpNaz.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="500"
+      Title="Services">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="LVService" Grid.Row="0" KeyUp="LVEmployee_KeyUp">
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="Id" 
+                                    Width="30" 
+                                    DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="NameService" 
+                                    Width="200" 
+                                    DisplayMemberBinding="{Binding NameService}"/>
+                    <GridViewColumn Header="Cost" 
+                                    Width="80" 
+                                    DisplayMemberBinding="{Binding Cost}"/>
+                    <GridViewColumn Header="DurationInMinute" 
+                                    Width="100" 
+                                    DisplayMemberBinding="{Binding DurationInMinute}"/>
+                    <GridViewColumn Header="Description" 
+                                    Width="80" 
+                                    DisplayMemberBinding="{Binding Description}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button x:Name="btnAdd" 
+                Grid.Row="2" 
+                Width="160" 
+                Height="30" 
+                Style="{DynamicResource btnStyle}" 
+                Content="Добавить" 
+                FontSize="20" 
+                HorizontalAlignment="Left"
+                Click="btnAdd_Click"
+                Margin="5 0"/>
+    </Grid>
+</Page>

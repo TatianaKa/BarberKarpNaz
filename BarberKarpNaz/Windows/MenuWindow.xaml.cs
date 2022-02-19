@@ -39,5 +39,14 @@ namespace BarberKarpNaz.Windows
         {
             frame.Navigate(new Orders());
         }
+
+        private void btnService_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Navigate(new Services());
+        }
+        private void myFrame_ContentRendered(object sender, EventArgs e)
+        {
+            frame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
+        }
     }
 }

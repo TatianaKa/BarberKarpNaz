@@ -35,7 +35,7 @@ namespace BarberKarpNaz.Pages
 
         private void Filter()
         {
-            ListClient = ClassHelper.AppData.context.Client.ToList();
+            ListClient = ClassHelper.AppData.context.Client.ToList().Where(i=>i.IsDeleted==false).ToList();
             ListClient = ListClient.Where(i => i.LastName.Contains(txbSearch.Text) ||
             i.FIrstName.Contains(txbSearch.Text) || i.Phone.Contains(txbSearch.Text)).ToList();
             switch (cmbSort.SelectedIndex)
@@ -80,6 +80,38 @@ namespace BarberKarpNaz.Pages
             EF.Client client = LVClient.SelectedItem as EF.Client;
             AddClient add = new AddClient(client);
             add.ShowDialog();
+        }
+
+        private void LVClient_KeyUp(object sender, KeyEventArgs e)
+        {
+            EF.Client client= LVClient.SelectedItem as EF.Client;
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                var resClick = MessageBox.Show($"Удалить клиента {/*LVEmployee.SelectedItem as EF.Employee*/ client }", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                try
+                {
+                    if (resClick == MessageBoxResult.Yes)
+                    {
+                        EF.Client userDel = new EF.Client();
+                        if (!(LVClient.SelectedItem is EF.Client))
+                        {
+                            MessageBox.Show("Запись не выбрана");
+                            return;
+                        }
+                        userDel = (LVClient.SelectedItem as EF.Client) ;
+                        userDel.IsDeleted = true;
+                        ClassHelper.AppData.context.SaveChanges();
+                        MessageBox.Show("Клиент удален");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+
+            }
+            Filter();
         }
     }
 }

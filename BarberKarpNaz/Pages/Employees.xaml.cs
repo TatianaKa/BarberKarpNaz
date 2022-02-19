@@ -84,7 +84,6 @@ namespace BarberKarpNaz.Pages
                             return;
                         }
                         userDel = (LVEmployee.SelectedItem as EF.Employee);
-                        //ClassHelper.AppData.context.Employee.Remove(userDel);
                         userDel.IsDeleted = true;
                         ClassHelper.AppData.context.SaveChanges();
                         MessageBox.Show("Сотрудник удален");

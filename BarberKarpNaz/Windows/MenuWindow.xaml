@@ -23,7 +23,7 @@
         
         <Button Width="100" 
                 Height="30" 
-                Margin="0 5 10 0"
+                Margin="70 5 10 0"
                 Grid.Row="0"
                 FontSize="20"
                 Content="Заказы"
@@ -42,9 +42,22 @@
                 Content="Персонал"
                 VerticalAlignment="Top"
                 Style="{DynamicResource btnStyle}"
-                Margin="0 5 220 0"
+                Margin="0 5 140 0"
                 x:Name="btnEmployee"
                 Click="btnEmployee_Click"
+                />
+        
+        <Button Width="110" 
+                HorizontalAlignment="Right" 
+                Height="30"
+                FontSize="20"
+                Grid.Row="0" 
+                Content="Услуги"
+                VerticalAlignment="Top"
+                Style="{DynamicResource btnStyle}"
+                Margin="0 5 280 0"
+                x:Name="btnService"
+                Click="btnService_Click"
                 />
         
         <Button Width="90" 
@@ -59,8 +72,8 @@
                 x:Name="btnClient"
                 Click="btnClient_Click"
                 />
-        
-        <Frame x:Name="frame" Grid.Row="1"/>
+
+        <Frame x:Name="frame" Grid.Row="1" ContentRendered="myFrame_ContentRendered"/>
 
 
     </Grid>

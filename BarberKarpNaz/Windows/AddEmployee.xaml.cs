@@ -104,6 +104,7 @@ namespace BarberKarpNaz.Windows
             var resClick= MessageBox.Show("Вы уверены","Вопрос",MessageBoxButton.YesNo,MessageBoxImage.Question);
             if (resClick== MessageBoxResult.Yes)
             {
+                //Изменение
                 if (isEdit)
                 {
                     employeeEdit.LastName = txbLastName.Text;
@@ -119,6 +120,7 @@ namespace BarberKarpNaz.Windows
                     this.Close();
                 }
                 else
+                //Добавление
                 {
                     Employee employee = new Employee();
                     employee.LastName = txbLastName.Text;
@@ -142,7 +144,7 @@ namespace BarberKarpNaz.Windows
            
         }
 
-
+        //Проверка
         private void txbPhone_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key==Key.Space)
