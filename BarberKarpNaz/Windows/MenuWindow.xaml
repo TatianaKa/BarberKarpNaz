@@ -73,7 +73,9 @@
                 Click="btnClient_Click"
                 />
 
-        <Frame x:Name="frame" Grid.Row="1" ContentRendered="myFrame_ContentRendered"/>
+        <Frame x:Name="frame" 
+               Grid.Row="1" 
+               ContentRendered="myFrame_ContentRendered"/>
 
 
     </Grid>

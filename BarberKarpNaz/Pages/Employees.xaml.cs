@@ -45,6 +45,7 @@ namespace BarberKarpNaz.Pages
                     break;
             }
             LVEmployee.ItemsSource = ListEmployee;
+            LVEmployee.Items.Refresh();
         }
 
         private void txbSearch_TextChanged(object sender, TextChangedEventArgs e)

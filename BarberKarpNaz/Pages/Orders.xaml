@@ -5,39 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BarberKarpNaz.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="600"
+      d:DesignHeight="450" d:DesignWidth="900"
       Title="Orders">
 
     <Grid Background="#FF11162E">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Поиск:" 
-                   Style="{DynamicResource txtStyle}"
-                   FontSize="20"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Margin="20 0"/>
 
-        <TextBox x:Name="txbSearch" 
-                 Width="180" 
-                 Height="30" 
-                 Style="{DynamicResource txbStyle}"
-                 HorizontalAlignment="Left" 
-                 Margin="100 0"
-                 TextChanged="txbSearch_TextChanged"/>
-
-        <ComboBox x:Name="cmbSort" 
-                  HorizontalAlignment="Center"
-                  Width="80"
-                  Height="30"
-                  Margin="70 0 0 0"
-                  SelectionChanged="cmbSort_SelectionChanged"/>
-
-        <ListView x:Name="LVOrder" Grid.Row="1">
+        <ListView x:Name="LVOrder" Grid.Row="0">
             <ListView.View>
                 <GridView >
                     <GridViewColumn Header="LastNameClient" 
@@ -47,13 +25,13 @@
                                     Width="120" 
                                     DisplayMemberBinding="{Binding Employee.LastName}"/>
                     <GridViewColumn Header="ServiceName" 
-                                    Width="80" 
+                                    Width="120" 
                                     DisplayMemberBinding="{Binding Service.NameService}"/>
                     <GridViewColumn Header="StartTime" 
-                                    Width="80" 
+                                    Width="150" 
                                     DisplayMemberBinding="{Binding StartTime}"/>
                     <GridViewColumn Header="EndTime" 
-                                    Width="80" 
+                                    Width="150" 
                                     DisplayMemberBinding="{Binding EndTime}"/>
                 </GridView>
             </ListView.View>
@@ -69,6 +47,7 @@
                 HorizontalAlignment="Left"
                 Click="btnAdd_Click"
                 Margin="5 0"/>
+        
         <Frame x:Name="frame" Grid.RowSpan="3"/>
     </Grid>
 </Page>

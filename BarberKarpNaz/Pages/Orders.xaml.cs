@@ -30,12 +30,11 @@ namespace BarberKarpNaz.Pages
         {
             ListOrder = ClassHelper.AppData.context.Order.ToList();
             LVOrder.ItemsSource = ListOrder;
+            LVOrder.Items.Refresh();
+            ListOrder= ClassHelper.AppData.context.Order.ToList();
         }
 
-        private void txbSearch_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Filter();
-        }
+
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {

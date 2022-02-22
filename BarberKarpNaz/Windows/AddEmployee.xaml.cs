@@ -135,6 +135,7 @@ namespace BarberKarpNaz.Windows
                     {
                     employee.Password = txbPassword.Text;
                     }
+                    employee.IsDeleted = false;
                     ClassHelper.AppData.context.Employee.Add(employee);
                     ClassHelper.AppData.context.SaveChanges();
                     MessageBox.Show("Пользователь успешно добавлен!");

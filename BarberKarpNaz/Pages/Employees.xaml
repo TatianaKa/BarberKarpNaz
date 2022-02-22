@@ -32,7 +32,7 @@
 
         <ComboBox x:Name="cmbSort" 
                   HorizontalAlignment="Center"
-                  Width="80"
+                  Width="130"
                   Height="30"
                   Margin="70 0 0 0"
                   SelectionChanged="cmbSort_SelectionChanged"/>
@@ -56,13 +56,13 @@
                                     Width="80" 
                                     DisplayMemberBinding="{Binding Phone}"/>
                     <GridViewColumn Header="Gender" 
-                                    Width="60" 
+                                    Width="80" 
                                     DisplayMemberBinding="{Binding Gender.Name}"/>
                     <GridViewColumn Header="Salary" 
                                     Width="70" 
                                     DisplayMemberBinding="{Binding Salary}"/>
                     <GridViewColumn Header="Speciality" 
-                                    Width="100" 
+                                    Width="220" 
                                     DisplayMemberBinding="{Binding Speciality.NameSpeciality}"/>
                     <GridViewColumn Header="Login" 
                                     Width="100" 

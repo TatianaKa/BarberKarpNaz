@@ -56,6 +56,7 @@ namespace BarberKarpNaz.Pages
                     break;
             }
             LVClient.ItemsSource = ListClient;
+            LVClient.Items.Refresh();
         }
 
         private void txbSearch_TextChanged(object sender, TextChangedEventArgs e)
