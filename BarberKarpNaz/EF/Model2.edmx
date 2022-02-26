@@ -32,6 +32,7 @@
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Image" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -78,6 +79,7 @@
           <Property Name="DurationInMinute" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Image" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Speciality">
           <Key>
@@ -254,6 +256,7 @@
           <NavigationProperty Name="Gender" Relationship="Self.FK_Employee_Gender" FromRole="Employee" ToRole="Gender" />
           <NavigationProperty Name="Speciality" Relationship="Self.FK_Employee_Speciality" FromRole="Employee" ToRole="Speciality" />
           <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -309,6 +312,7 @@
           <NavigationProperty Name="MaterialService" Relationship="Self.FK_MaterialService_Service" FromRole="Service" ToRole="MaterialService" />
           <NavigationProperty Name="Order" Relationship="Self.FK_ClientService_Service" FromRole="Service" ToRole="Order" />
           <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Speciality">
           <Key>
@@ -473,6 +477,7 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="BarberShopModel1.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -529,6 +534,7 @@
           <EntitySetMapping Name="Service">
             <EntityTypeMapping TypeName="BarberShopModel1.Service">
               <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="NameService" ColumnName="NameService" />
