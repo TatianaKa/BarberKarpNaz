@@ -268,6 +268,7 @@
       <DependentUpon>Model2.edmx</DependentUpon>
       <LastGenOutput>Model2.cs</LastGenOutput>
     </Content>
+    <Resource Include="Res\humanAdd.png" />
     <Resource Include="Res\human.png" />
   </ItemGroup>
   <ItemGroup>

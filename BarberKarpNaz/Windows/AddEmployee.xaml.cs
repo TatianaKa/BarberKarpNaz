@@ -6,6 +6,9 @@ using System.Linq;
 using System.Windows.Controls;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
+using Microsoft.Win32;
+using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace BarberKarpNaz.Windows
 {
@@ -13,6 +16,7 @@ namespace BarberKarpNaz.Windows
     {
         bool isEdit=true;
         EF.Employee employeeEdit = new Employee();
+        string PathPhoto=null;
         public AddEmployee()
         {
             isEdit = false;
@@ -88,18 +92,25 @@ namespace BarberKarpNaz.Windows
             }
             var userPhone = ClassHelper.AppData.context.Employee.Where(i => i.Phone == txbPhone.Text).ToList().FirstOrDefault();
             var userLogin = ClassHelper.AppData.context.Employee.Where(i => i.Login == txbLogin.Text).ToList().FirstOrDefault();
-            
-            if (userPhone!=null)
+
+            if (isEdit == true)
             {
-                MessageBox.Show("Данный номер телефона уже есть в системе ","Ошибка",MessageBoxButton.OK,MessageBoxImage.Error);
-                return;
+
             }
-            
-            if (userLogin!=null)
+            else
             {
+                if (userPhone != null)
+                {
+                    MessageBox.Show("Данный номер телефона уже есть в системе ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                if (userLogin!=null)
+                {
                 MessageBox.Show("Данный логин уже есть в системе ","Ошибка",MessageBoxButton.OK,MessageBoxImage.Error);
                 return;
+                }
             }
+            
 
             var resClick= MessageBox.Show("Вы уверены","Вопрос",MessageBoxButton.YesNo,MessageBoxImage.Question);
             if (resClick== MessageBoxResult.Yes)
@@ -115,6 +126,24 @@ namespace BarberKarpNaz.Windows
                     employeeEdit.Login = txbLogin.Text;
                     employeeEdit.GenderCode = cmbGender.SelectedIndex + 1;
                     employeeEdit.IdSpeciality = cmbGender.SelectedIndex + 1;
+                    if (employeeEdit.Image != null)
+                    {
+                        employeeEdit.Image = File.ReadAllBytes(PathPhoto);
+                    }
+                    //проблемка
+                    if (employeeEdit.Image!=null)
+                    {
+                        using (MemoryStream stream=new MemoryStream(employeeEdit.Image))
+                        {
+                            BitmapImage bitmap = new BitmapImage();
+                            bitmap.BeginInit();
+                            bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                            bitmap.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                            bitmap.StreamSource = stream;
+                            bitmap.EndInit();
+                            Photo.Source = bitmap;
+                        }
+                    }
                     ClassHelper.AppData.context.SaveChanges();
                     MessageBox.Show("Пользователь успешно изменен!");
                     this.Close();
@@ -136,6 +165,10 @@ namespace BarberKarpNaz.Windows
                     employee.Password = txbPassword.Text;
                     }
                     employee.IsDeleted = false;
+                    if (employee.Image!= null)
+                    {
+                        employee.Image = File.ReadAllBytes(PathPhoto);
+                    }
                     ClassHelper.AppData.context.Employee.Add(employee);
                     ClassHelper.AppData.context.SaveChanges();
                     MessageBox.Show("Пользователь успешно добавлен!");
@@ -190,6 +223,17 @@ namespace BarberKarpNaz.Windows
         {
             e.Handled = true;
 
+        }
+
+        private void btnPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            if (openFile.ShowDialog()==true)
+            {
+                Photo.Source =new BitmapImage(new Uri(openFile.FileName));
+                 PathPhoto = openFile.FileName;
+            }
+           
         }
     }
 }

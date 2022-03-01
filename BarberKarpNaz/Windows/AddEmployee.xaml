@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarberKarpNaz.Windows"
         mc:Ignorable="d"
-        Title="AddEmployee" Height="450" Width="400"
+        Title="AddEmployee" Height="600" Width="400"
         WindowStartupLocation="CenterScreen">
     <Grid Background="#FF11162E">
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -125,7 +129,7 @@
         <Button x:Name="btnAdd" 
                 Content="Добавить"
                 Style="{DynamicResource btnStyle}"
-                Grid.Row="11"
+                Grid.Row="15"
                 Grid.ColumnSpan="2"
                 Width="120"
                 FontSize="15"
@@ -253,5 +257,24 @@
                   HorizontalAlignment="Left" 
                   VerticalAlignment="Center"
                   PreviewKeyDown="txbPhone_PreviewKeyDown" />
+        <Border Grid.Row="11" 
+                Grid.RowSpan="3"
+                Grid.ColumnSpan="2"
+                Width="120"
+                Height='80'
+                BorderBrush="White"
+                BorderThickness="1">
+            <Image x:Name="Photo" />
+
+        </Border>
+            <Button x:Name="btnPhoto" 
+                Content="Выбрать фото"
+                Style="{DynamicResource btnStyle}"
+                Grid.Row="14"
+                Grid.ColumnSpan="2"
+                Width="120"
+                FontSize="15"
+                Height='20'
+                 Click="btnPhoto_Click"/>
     </Grid>
 </Window>
