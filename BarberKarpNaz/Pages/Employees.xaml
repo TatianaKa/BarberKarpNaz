@@ -99,7 +99,7 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Image Grid.RowSpan="3" >
+                            <Image Grid.RowSpan="3"  >
                                 <Image.Source>
                                     <Binding Path="Image">
                                         <Binding.TargetNullValue>
@@ -213,7 +213,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+
         <Button x:Name="btnAdd" 
                 Grid.Row="2" 
                 Width="160" 
@@ -224,27 +224,6 @@
                 HorizontalAlignment="Left"
                 Click="btnAdd_Click"
                 Margin="5 0"/>
-        
-        <!--<Button x:Name="btnChange" 
-                Grid.Row="2" 
-                Width="160" 
-                Height="30" 
-                Style="{DynamicResource btnStyle}" 
-                Content="Изменить" 
-                FontSize="20" 
-                HorizontalAlignment="Center"
-                Click="btnChange_Click"/>
-
-        <Button x:Name="btnDelete" 
-                Grid.Row="2" 
-                Width="160" 
-                Height="30" 
-                Style="{DynamicResource btnStyle}" 
-                Content="Удалить" 
-                FontSize="20" 
-                HorizontalAlignment="Right"
-                Click="btnDelete_Click"
-                Margin="5 0"/>-->
         <Frame x:Name="frame" Grid.RowSpan="3"/>
     </Grid>
 </Page>

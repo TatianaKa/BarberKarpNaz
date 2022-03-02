@@ -21,6 +21,7 @@ namespace BarberKarpNaz.Pages
             cmbSort.ItemsSource = ListOfSort;
             cmbSort.SelectedIndex = 0;
             Filter();
+            
         }
         private void Filter()
         {

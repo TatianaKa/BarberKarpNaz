@@ -264,7 +264,7 @@
                 Height='80'
                 BorderBrush="White"
                 BorderThickness="1">
-            <Image x:Name="Photo" />
+            <Image x:Name="photoUser" />
 
         </Border>
             <Button x:Name="btnPhoto" 

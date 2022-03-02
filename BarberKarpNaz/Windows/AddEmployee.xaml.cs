@@ -16,11 +16,13 @@ namespace BarberKarpNaz.Windows
     {
         bool isEdit=true;
         EF.Employee employeeEdit = new Employee();
-        string PathPhoto=null;
+        private string PathPhoto=null;
+
         public AddEmployee()
         {
             isEdit = false;
             InitializeComponent();
+
             cmbGender.ItemsSource = ClassHelper.AppData.context.Gender.ToList();
             cmbGender.DisplayMemberPath = "Name";
             cmbGender.SelectedIndex = 0;
@@ -51,6 +53,19 @@ namespace BarberKarpNaz.Windows
             txbSalary.Text = employee.Salary.ToString();
             txbLogin.Text = employee.Login;
             txbPassword.Text = employee.Password;
+            if (employee.Image != null)
+            {
+                using (MemoryStream stream = new MemoryStream(employee.Image))
+                {
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                    bitmap.StreamSource = stream;
+                    bitmap.EndInit();
+                    photoUser.Source = bitmap;
+                }
+            }
             employeeEdit = employee;
             ClassHelper.AppData.context.SaveChanges();
         }
@@ -126,23 +141,9 @@ namespace BarberKarpNaz.Windows
                     employeeEdit.Login = txbLogin.Text;
                     employeeEdit.GenderCode = cmbGender.SelectedIndex + 1;
                     employeeEdit.IdSpeciality = cmbGender.SelectedIndex + 1;
-                    if (employeeEdit.Image != null)
+                    if (PathPhoto!=null)
                     {
                         employeeEdit.Image = File.ReadAllBytes(PathPhoto);
-                    }
-                    //проблемка
-                    if (employeeEdit.Image!=null)
-                    {
-                        using (MemoryStream stream=new MemoryStream(employeeEdit.Image))
-                        {
-                            BitmapImage bitmap = new BitmapImage();
-                            bitmap.BeginInit();
-                            bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                            bitmap.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
-                            bitmap.StreamSource = stream;
-                            bitmap.EndInit();
-                            Photo.Source = bitmap;
-                        }
                     }
                     ClassHelper.AppData.context.SaveChanges();
                     MessageBox.Show("Пользователь успешно изменен!");
@@ -165,7 +166,7 @@ namespace BarberKarpNaz.Windows
                     employee.Password = txbPassword.Text;
                     }
                     employee.IsDeleted = false;
-                    if (employee.Image!= null)
+                    if (PathPhoto != null)
                     {
                         employee.Image = File.ReadAllBytes(PathPhoto);
                     }
@@ -230,8 +231,8 @@ namespace BarberKarpNaz.Windows
             OpenFileDialog openFile = new OpenFileDialog();
             if (openFile.ShowDialog()==true)
             {
-                Photo.Source =new BitmapImage(new Uri(openFile.FileName));
-                 PathPhoto = openFile.FileName;
+                photoUser.Source =new BitmapImage(new Uri(openFile.FileName));
+                PathPhoto = openFile.FileName;
             }
            
         }
