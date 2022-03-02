@@ -27,5 +27,8 @@
                 <div>И последней вкладкой является вкладка заказы.Там мы можем посмотреть , добавить или отсортировать их <div/>
                    <p><img  alt="OrderPage" src="https://github.com/TatianaKa/BarberKarpNaz/blob/master/Image/OrderPage.PNG"  </img></p>
                    <p><img  alt="EmployeePage" src="https://github.com/TatianaKa/BarberKarpNaz/blob/master/Image/AddOrder.PNG"  </img></p>
+                   <div>В недавнем обновлении мы изменили формат вывода данных персонала<div/>
+                   <p><img  alt="NewEmployeeView" src="https://github.com/TatianaKa/BarberKarpNaz/blob/master/Image/NewEmployeeView.PNG"  </img></p>
+                   <p><img  alt="AddEmployeeView" src="https://github.com/TatianaKa/BarberKarpNaz/blob/master/Image/AddEmployeeView.PNG"  </img></p>
   </body>
   </html>
