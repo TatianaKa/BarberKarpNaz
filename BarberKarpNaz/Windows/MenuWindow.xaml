@@ -23,11 +23,11 @@
         
         <Button Width="100" 
                 Height="30" 
-                Margin="70 5 10 0"
+                Margin="0 5 420 0"
                 Grid.Row="0"
                 FontSize="20"
                 Content="Заказы"
-                HorizontalAlignment="Center"
+                HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Style="{DynamicResource btnStyle}"
                 x:Name="btnOrder"

@@ -85,7 +85,11 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border Width="1000" Height="100" CornerRadius="10" BorderThickness="2" BorderBrush="Black">
+                    <Border Width="1000" 
+                            Height="100" 
+                            CornerRadius="10" 
+                            BorderThickness="2" 
+                            BorderBrush="Black">
                         <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -99,6 +103,7 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
+                            
                             <Image Grid.RowSpan="3"  >
                                 <Image.Source>
                                     <Binding Path="Image">
@@ -108,6 +113,7 @@
                                     </Binding>
                                 </Image.Source>
                             </Image>
+                            
                             <TextBlock Text="Фамилия" 
                            FontSize="15"
                            Grid.Column="1" 
@@ -116,6 +122,7 @@
                            HorizontalAlignment="Right" 
                            Margin="5" 
                            FontFamily="century gothic"/>
+                            
                             <TextBlock Text="Имя" 
                            FontSize="15" 
                            Grid.Column="1"
@@ -141,6 +148,7 @@
                            HorizontalAlignment="Left" 
                            Margin="5" 
                            FontFamily="century gothic"/>
+                            
                             <TextBlock Text="{Binding Path=FirstName}" 
                            FontSize="15" 
                            Grid.Column="2"
@@ -149,6 +157,8 @@
                            HorizontalAlignment="Left" 
                            Margin="5"
                            FontFamily="century gothic"/>
+                            
+                            
                             <TextBlock Text="{Binding Path=Phone}"
                            FontSize="15" 
                            Grid.Column="2" 
@@ -166,6 +176,7 @@
                            HorizontalAlignment="Right" 
                            Margin="5" 
                            FontFamily="century gothic"/>
+                            
                             <TextBlock Text="Логин" 
                            FontSize="15" 
                            Grid.Column="3"
@@ -174,6 +185,7 @@
                            HorizontalAlignment="Right" 
                            Margin="5"
                            FontFamily="century gothic"/>
+                            
                             <TextBlock Text="Пароль"
                            FontSize="15" 
                            Grid.Column="3" 
@@ -191,6 +203,7 @@
                            HorizontalAlignment="Left" 
                            Margin="5" 
                            FontFamily="century gothic"/>
+                            
                             <TextBlock Text="{Binding Path=Login}" 
                            FontSize="15" 
                            Grid.Column="4"
@@ -199,6 +212,7 @@
                            HorizontalAlignment="Left" 
                            Margin="5"
                            FontFamily="century gothic"/>
+                            
                             <TextBlock Text="{Binding Path=Password}"
                            FontSize="15" 
                            Grid.Column="4" 

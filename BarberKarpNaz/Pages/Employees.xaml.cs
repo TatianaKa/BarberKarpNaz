@@ -73,7 +73,7 @@ namespace BarberKarpNaz.Pages
             EF.Employee employee = LVEmployee.SelectedItem as EF.Employee;
             if (e.Key == Key.Delete || e.Key == Key.Back)
             {
-                var resClick = MessageBox.Show($"Удалить сотрудника {/*LVEmployee.SelectedItem as EF.Employee*/ employee }", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var resClick = MessageBox.Show($"Удалить сотрудника {employee.LastName }", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 try
                 {
