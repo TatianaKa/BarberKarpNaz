@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="450" Width="400">
-    <Grid Background="#FF11162E" >
+    <Grid Background="#FF11162E" KeyUp="Grid_KeyUp" >
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>

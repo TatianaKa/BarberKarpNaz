@@ -27,9 +27,16 @@
                 HorizontalAlignment="Center" VerticalAlignment="Top"  
                 Grid.Column="1" 
                 Background="{x:Null}"
+                Click="btnSalary_Click"
                 Margin="0 20"
                 BorderBrush="White" 
-Foreground="White" />
+Foreground="White" /> 
+        <TextBlock x:Name="txbSalary" 
+                HorizontalAlignment="Center" VerticalAlignment="Top"  
+                Grid.Column="1" 
+                Background="{x:Null}"
+                Margin="0 50"
+               Foreground="White" />
 
     </Grid>
 </Window>

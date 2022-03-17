@@ -68,19 +68,19 @@
     <Compile Include="ClassHelper\AppData.cs" />
     <Compile Include="ClassHelper\CountSalary.cs" />
     <Compile Include="EF\Client.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelHome.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Employee.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelHome.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Gender.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelHome.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Material.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelHome.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\MaterialService.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelHome.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -113,16 +113,16 @@
       <DependentUpon>ModelHome.edmx</DependentUpon>
     </Compile>
     <Compile Include="EF\Order.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelHome.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Service.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelHome.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Speciality.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelHome.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelHome.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\Clients.xaml.cs">
       <DependentUpon>Clients.xaml</DependentUpon>

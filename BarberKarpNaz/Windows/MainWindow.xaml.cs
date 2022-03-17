@@ -7,6 +7,7 @@ namespace BarberKarpNaz
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -31,6 +32,27 @@ namespace BarberKarpNaz
             else
             {
                 MessageBox.Show("Проверьте правильность введенных данных");
+            }
+        }
+
+        private void Grid_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key==System.Windows.Input.Key.Enter)
+            {
+                var userAuth = ClassHelper.AppData.context.Employee.Where(i => i.Login == txbLogin.Text && i.Password == txbPassword.Password).ToList().FirstOrDefault();
+                if (userAuth != null)
+                {
+                    MenuWindow menu = new MenuWindow();
+                    txbLogin.Clear();
+                    txbPassword.Clear();
+                    this.Hide();
+                    menu.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Проверьте правильность введенных данных");
+                }
             }
         }
     }
