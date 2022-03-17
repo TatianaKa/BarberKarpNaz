@@ -21,13 +21,16 @@ namespace BarberKarpNaz.Windows
         {
 
             EF.Employee employee = LvReport.SelectedItem as EF.Employee;
+            //var Lists =new List<double>{ };
+            //Lists =ClassHelper.AppData.context.Order.Where(i => i.IdEmployee == employee.Id).Select(j => ((double)j.FinishCost)).ToList() ;
+            //txbSalary.Text=( ClassHelper.CountSalary.Salary(Lists)).ToString();
+            DateTime from =Convert.ToDateTime( txbFromDate.Text);
+            DateTime to =Convert.ToDateTime( txbToDate.Text);
             var Lists =new List<double>{ };
-            Lists =ClassHelper.AppData.context.Order.Where(i => i.IdEmployee == employee.Id).Select(j => ((double)j.FinishCost)).ToList() ;
-           txbSalary.Text=( ClassHelper.CountSalary.Salary(Lists)).ToString();
-            // List =Convert.ChangeType(List, ClassHelper.AppData.context.Order.ToList().Where(i => i.IdEmployee == employee.Id).Select(i => i.FinishCost));
-            //ClassHelper.AppData.context.Order.Where(i => i.IdEmployee == employee.Id).Select(i => i.FinishCost).ToList();
-           // ClassHelper.CountSalary.Salary();
+            Lists =ClassHelper.AppData.context.Order.Where(i => i.IdEmployee == employee.Id&& (i.StartTime>=from && i.StartTime <= to)).Select(j => (double)j.FinishCost) .ToList();
+            txbSalary.Text=( ClassHelper.CountSalary.Salary(Lists)).ToString();
 
         }
+
     }
 }
