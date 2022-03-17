@@ -21,6 +21,7 @@ namespace BarberKarpNaz.EF
         public System.DateTime StartTime { get; set; }
         public System.DateTime EndTime { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public Nullable<int> FinishCost { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual Employee Employee { get; set; }

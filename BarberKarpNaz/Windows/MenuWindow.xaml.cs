@@ -1,17 +1,7 @@
-﻿using System;
+﻿using BarberKarpNaz.Pages;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using BarberKarpNaz.Pages;
 
 namespace BarberKarpNaz.Windows
 {
@@ -47,6 +37,12 @@ namespace BarberKarpNaz.Windows
         private void myFrame_ContentRendered(object sender, EventArgs e)
         {
             frame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
+        }
+
+        private void btnReport_Click(object sender, RoutedEventArgs e)
+        {
+            Report report = new Report();
+            report.ShowDialog();
         }
     }
 }

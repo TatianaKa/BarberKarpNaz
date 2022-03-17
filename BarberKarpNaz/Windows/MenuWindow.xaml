@@ -72,6 +72,19 @@
                 x:Name="btnClient"
                 Click="btnClient_Click"
                 />
+        
+        <Button Width="90" 
+                Height="30"
+                Margin="0 5 550 0"
+                FontSize="20"
+                Grid.Row="0" 
+                Content="Отчеты"
+                Style="{DynamicResource btnStyle}"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                x:Name="btnReport"
+                Click="btnReport_Click"
+                />
 
         <Frame x:Name="frame" 
                Grid.Row="1" 

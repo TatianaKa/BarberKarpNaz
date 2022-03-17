@@ -108,7 +108,7 @@
                                 <Image.Source>
                                     <Binding Path="Image">
                                         <Binding.TargetNullValue>
-                                            <ImageSource>D:\учеба\BarberKarpNaz\BarberKarpNaz\Res\human.png</ImageSource>
+                                            <ImageSource>/Res/human.png</ImageSource>
                                         </Binding.TargetNullValue>
                                     </Binding>
                                 </Image.Source>

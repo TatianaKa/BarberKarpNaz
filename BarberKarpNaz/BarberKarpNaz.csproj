@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ClassHelper\AppData.cs" />
+    <Compile Include="ClassHelper\CountSalary.cs" />
     <Compile Include="EF\Client.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -96,20 +97,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="EF\Model2.Context.cs">
+    <Compile Include="EF\ModelHome.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.Context.tt</DependentUpon>
+      <DependentUpon>ModelHome.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Model2.cs">
+    <Compile Include="EF\ModelHome.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>ModelHome.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Model2.Designer.cs">
+    <Compile Include="EF\ModelHome.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.edmx</DependentUpon>
+      <DependentUpon>ModelHome.edmx</DependentUpon>
     </Compile>
     <Compile Include="EF\Order.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -152,6 +153,9 @@
     </Compile>
     <Compile Include="Windows\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Report.xaml.cs">
+      <DependentUpon>Report.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\Clients.xaml">
       <SubType>Designer</SubType>
@@ -205,6 +209,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -224,10 +232,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="EF\Model2.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model2.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <EntityDeploy Include="EF\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -235,8 +239,12 @@
     <None Include="EF\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
-    <None Include="EF\Model2.edmx.diagram">
-      <DependentUpon>Model2.edmx</DependentUpon>
+    <EntityDeploy Include="EF\ModelHome.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelHome.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF\ModelHome.edmx.diagram">
+      <DependentUpon>ModelHome.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -259,15 +267,15 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Content Include="EF\Model2.Context.tt">
+    <Content Include="EF\ModelHome.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model2.edmx</DependentUpon>
-      <LastGenOutput>Model2.Context.cs</LastGenOutput>
+      <DependentUpon>ModelHome.edmx</DependentUpon>
+      <LastGenOutput>ModelHome.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="EF\Model2.tt">
+    <Content Include="EF\ModelHome.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model2.edmx</DependentUpon>
-      <LastGenOutput>Model2.cs</LastGenOutput>
+      <DependentUpon>ModelHome.edmx</DependentUpon>
+      <LastGenOutput>ModelHome.cs</LastGenOutput>
     </Content>
     <Resource Include="Res\humanAdd.png" />
     <Resource Include="Res\human.png" />

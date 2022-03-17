@@ -110,5 +110,6 @@ namespace BarberKarpNaz.Pages
             AddEmployee add = new AddEmployee(employee);
             add.ShowDialog();
         }
+
     }
 }

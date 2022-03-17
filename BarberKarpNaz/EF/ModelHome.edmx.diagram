@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9ae5c260e65345c581db14f3d4b7b34a" Name="Diagram1">
-        <EntityTypeShape EntityType="BarberShopModel1.Client" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarberShopModel1.Employee" Width="1.5" PointX="3.75" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarberShopModel1.Gender" Width="1.5" PointX="1.5" PointY="10.875" IsExpanded="true" />
+      <Diagram DiagramId="7724168b9087490e8fc8d794c989b131" Name="Diagram1">
+        <EntityTypeShape EntityType="BarberShopModel1.Client" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarberShopModel1.Employee" Width="1.5" PointX="3.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarberShopModel1.Gender" Width="1.5" PointX="1.5" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BarberShopModel1.Material" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BarberShopModel1.MaterialService" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BarberShopModel1.Order" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarberShopModel1.Service" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarberShopModel1.Speciality" Width="1.5" PointX="1.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarberShopModel1.Service" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarberShopModel1.Speciality" Width="1.5" PointX="1.5" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BarberShopModel1.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
         <AssociationConnector Association="BarberShopModel1.FK_ClientService_Client" ManuallyRouted="false" />
         <AssociationConnector Association="BarberShopModel1.FK_ClientService_Employee" ManuallyRouted="false" />

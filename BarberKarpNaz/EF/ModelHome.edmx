@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище BarberShopModel1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище BarberShopModel1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="Id" />
@@ -79,7 +79,6 @@
           <Property Name="DurationInMinute" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="IsDeleted" Type="bit" />
-          <Property Name="Image" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Speciality">
           <Key>
@@ -221,7 +220,8 @@
             <End Role="MaterialService" EntitySet="MaterialService" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BarberShopModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -235,8 +235,8 @@
           <Property Name="Patronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_ClientService_Client" FromRole="Client" ToRole="Order" />
           <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_ClientService_Client" FromRole="Client" ToRole="Order" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -252,11 +252,11 @@
           <Property Name="IdSpeciality" Type="Int32" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_ClientService_Employee" FromRole="Employee" ToRole="Order" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Employee_Gender" FromRole="Employee" ToRole="Gender" />
           <NavigationProperty Name="Speciality" Relationship="Self.FK_Employee_Speciality" FromRole="Employee" ToRole="Speciality" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -309,10 +309,9 @@
           <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="DurationInMinute" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="MaterialService" Relationship="Self.FK_MaterialService_Service" FromRole="Service" ToRole="MaterialService" />
           <NavigationProperty Name="Order" Relationship="Self.FK_ClientService_Service" FromRole="Service" ToRole="Order" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Speciality">
           <Key>
@@ -416,7 +415,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="Employee" EntityType="Self.Employee" />
           <EntitySet Name="Gender" EntityType="Self.Gender" />
@@ -460,25 +459,23 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище BarberShopModel1Container" CdmEntityContainer="Entities2">
+        <EntityContainerMapping StorageEntityContainer="Хранилище BarberShopModel1Container" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="BarberShopModel1.Client">
               <MappingFragment StoreEntitySet="Client">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FIrstName" ColumnName="FIrstName" />
                 <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="BarberShopModel1.Employee">
               <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -489,6 +486,8 @@
                 <ScalarProperty Name="IdSpeciality" ColumnName="IdSpeciality" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -534,13 +533,12 @@
           <EntitySetMapping Name="Service">
             <EntityTypeMapping TypeName="BarberShopModel1.Service">
               <MappingFragment StoreEntitySet="Service">
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="NameService" ColumnName="NameService" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="DurationInMinute" ColumnName="DurationInMinute" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
