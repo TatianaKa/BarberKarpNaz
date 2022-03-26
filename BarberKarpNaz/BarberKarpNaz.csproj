@@ -115,6 +115,9 @@
     <Compile Include="EF\Order.cs">
       <DependentUpon>ModelHome.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\Profit.cs">
+      <DependentUpon>ModelHome.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Service.cs">
       <DependentUpon>ModelHome.tt</DependentUpon>
     </Compile>

@@ -12,32 +12,20 @@ namespace BarberKarpNaz.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class Profit
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
+        public Profit()
         {
-            this.Order = new HashSet<Order>();
+            this.Employee = new HashSet<Employee>();
         }
     
         public int Id { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string Patronymic { get; set; }
-        public string Phone { get; set; }
-        public Nullable<int> GenderCode { get; set; }
-        public int Salary { get; set; }
-        public Nullable<int> IdSpeciality { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public Nullable<bool> IsDeleted { get; set; }
-        public byte[] Image { get; set; }
-        public Nullable<int> IdProfit { get; set; }
+        public decimal Profits { get; set; }
+        public System.DateTime StartDate { get; set; }
+        public System.DateTime EndDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
-        public virtual Gender Gender { get; set; }
-        public virtual Profit Profit { get; set; }
-        public virtual Speciality Speciality { get; set; }
+        public virtual ICollection<Employee> Employee { get; set; }
     }
 }

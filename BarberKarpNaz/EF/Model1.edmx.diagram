@@ -5,22 +5,24 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="2145315499b84cc1b12dc4133e3c6d92" Name="Diagram1" ZoomLevel="86">
-        <EntityTypeShape EntityType="BarberShopModel.Client" Width="1.5" PointX="3.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarberShopModel.Employee" Width="1.5" PointX="3.75" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarberShopModel.Gender" Width="1.5" PointX="1.5" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarberShopModel.Material" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarberShopModel.MaterialService" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarberShopModel.Order" Width="1.5" PointX="6" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarberShopModel.Service" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarberShopModel.Speciality" Width="1.5" PointX="1.5" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BarberShopModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
-        <AssociationConnector Association="BarberShopModel.FK_ClientService_Client" ManuallyRouted="false" />
-        <AssociationConnector Association="BarberShopModel.FK_ClientService_Employee" ManuallyRouted="false" />
-        <AssociationConnector Association="BarberShopModel.FK_Employee_Gender" ManuallyRouted="false" />
-        <AssociationConnector Association="BarberShopModel.FK_Employee_Speciality" ManuallyRouted="false" />
-        <AssociationConnector Association="BarberShopModel.FK_MaterialService_Material" ManuallyRouted="false" />
-        <AssociationConnector Association="BarberShopModel.FK_MaterialService_Service" ManuallyRouted="false" />
-        <AssociationConnector Association="BarberShopModel.FK_ClientService_Service" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BarberShopModel.Client" Width="1.5" PointX="3" PointY="10.875" />
+        <EntityTypeShape EntityType="BarberShopModel.Employee" Width="1.5" PointX="3" PointY="1.75" />
+        <EntityTypeShape EntityType="BarberShopModel.Gender" Width="1.5" PointX="0.75" PointY="3.125" />
+        <EntityTypeShape EntityType="BarberShopModel.Material" Width="1.5" PointX="3" PointY="14.875" />
+        <EntityTypeShape EntityType="BarberShopModel.MaterialService" Width="1.5" PointX="5.25" PointY="7.75" />
+        <EntityTypeShape EntityType="BarberShopModel.Order" Width="1.5" PointX="5.25" PointY="2.375" />
+        <EntityTypeShape EntityType="BarberShopModel.Profit" Width="1.5" PointX="0.75" PointY="6.125" />
+        <EntityTypeShape EntityType="BarberShopModel.Service" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="BarberShopModel.Speciality" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BarberShopModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.5" />
+        <AssociationConnector Association="BarberShopModel.FK_ClientService_Client" />
+        <AssociationConnector Association="BarberShopModel.FK_ClientService_Employee" />
+        <AssociationConnector Association="BarberShopModel.FK_Employee_Gender" />
+        <AssociationConnector Association="BarberShopModel.FK_Employee_Profit" />
+        <AssociationConnector Association="BarberShopModel.FK_Employee_Speciality" />
+        <AssociationConnector Association="BarberShopModel.FK_MaterialService_Material" />
+        <AssociationConnector Association="BarberShopModel.FK_MaterialService_Service" />
+        <AssociationConnector Association="BarberShopModel.FK_ClientService_Service" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

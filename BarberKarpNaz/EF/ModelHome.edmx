@@ -33,6 +33,7 @@
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="IsDeleted" Type="bit" />
           <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="IdProfit" Type="int" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -69,6 +70,15 @@
           <Property Name="EndTime" Type="datetime" Nullable="false" />
           <Property Name="IsActive" Type="bit" />
           <Property Name="FinishCost" Type="int" />
+        </EntityType>
+        <EntityType Name="Profit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Profits" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -146,6 +156,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Employee_Profit">
+          <End Role="Profit" Type="Self.Profit" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="IdProfit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Employee_Speciality">
           <End Role="Speciality" Type="Self.Speciality" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -189,6 +211,7 @@
           <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MaterialService" EntityType="Self.MaterialService" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profit" EntityType="Self.Profit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Speciality" EntityType="Self.Speciality" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -206,6 +229,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Employee_Gender" Association="Self.FK_Employee_Gender">
             <End Role="Gender" EntitySet="Gender" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Profit" Association="Self.FK_Employee_Profit">
+            <End Role="Profit" EntitySet="Profit" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
           <AssociationSet Name="FK_Employee_Speciality" Association="Self.FK_Employee_Speciality">
@@ -232,6 +259,7 @@
           <EntitySet Name="Material" EntityType="BarberShopModel1.Material" />
           <EntitySet Name="MaterialService" EntityType="BarberShopModel1.MaterialService" />
           <EntitySet Name="Order" EntityType="BarberShopModel1.Order" />
+          <EntitySet Name="Profit" EntityType="BarberShopModel1.Profit" />
           <EntitySet Name="Service" EntityType="BarberShopModel1.Service" />
           <EntitySet Name="Speciality" EntityType="BarberShopModel1.Speciality" />
           <EntitySet Name="sysdiagrams" EntityType="BarberShopModel1.sysdiagrams" />
@@ -245,6 +273,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Employee_Gender" Association="BarberShopModel1.FK_Employee_Gender">
             <End Role="Gender" EntitySet="Gender" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Profit" Association="BarberShopModel1.FK_Employee_Profit">
+            <End Role="Profit" EntitySet="Profit" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
           <AssociationSet Name="FK_Employee_Speciality" Association="BarberShopModel1.FK_Employee_Speciality">
@@ -293,8 +325,10 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IsDeleted" Type="Boolean" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IdProfit" Type="Int32" />
           <NavigationProperty Name="Order" Relationship="BarberShopModel1.FK_ClientService_Employee" FromRole="Employee" ToRole="Order" />
           <NavigationProperty Name="Gender" Relationship="BarberShopModel1.FK_Employee_Gender" FromRole="Employee" ToRole="Gender" />
+          <NavigationProperty Name="Profit" Relationship="BarberShopModel1.FK_Employee_Profit" FromRole="Employee" ToRole="Profit" />
           <NavigationProperty Name="Speciality" Relationship="BarberShopModel1.FK_Employee_Speciality" FromRole="Employee" ToRole="Speciality" />
         </EntityType>
         <EntityType Name="Gender">
@@ -339,6 +373,16 @@
           <NavigationProperty Name="Client" Relationship="BarberShopModel1.FK_ClientService_Client" FromRole="Order" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="BarberShopModel1.FK_ClientService_Employee" FromRole="Order" ToRole="Employee" />
           <NavigationProperty Name="Service" Relationship="BarberShopModel1.FK_ClientService_Service" FromRole="Order" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Profit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Profits" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Employee" Relationship="BarberShopModel1.FK_Employee_Profit" FromRole="Profit" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -407,6 +451,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Employee_Profit">
+          <End Type="BarberShopModel1.Profit" Role="Profit" Multiplicity="0..1" />
+          <End Type="BarberShopModel1.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="IdProfit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Employee_Speciality">
           <End Type="BarberShopModel1.Speciality" Role="Speciality" Multiplicity="0..1" />
           <End Type="BarberShopModel1.Employee" Role="Employee" Multiplicity="*" />
@@ -455,7 +511,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -477,6 +533,7 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="BarberShopModel1.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="IdProfit" ColumnName="IdProfit" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -528,6 +585,16 @@
                 <ScalarProperty Name="IdEmployee" ColumnName="IdEmployee" />
                 <ScalarProperty Name="IdService" ColumnName="IdService" />
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profit">
+            <EntityTypeMapping TypeName="BarberShopModel1.Profit">
+              <MappingFragment StoreEntitySet="Profit">
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Profits" ColumnName="Profits" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

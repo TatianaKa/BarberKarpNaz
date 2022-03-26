@@ -31,6 +31,7 @@ namespace BarberKarpNaz.EF
         public virtual DbSet<Material> Material { get; set; }
         public virtual DbSet<MaterialService> MaterialService { get; set; }
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<Profit> Profit { get; set; }
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<Speciality> Speciality { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
